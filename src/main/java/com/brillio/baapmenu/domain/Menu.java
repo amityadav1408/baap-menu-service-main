@@ -18,7 +18,7 @@ import java.io.Serializable;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Menu implements Serializable {
+public class Menu implements Serializable , Comparable<Menu> {
 
     @Serial
     private static final long serialVersionUID = 2013106908117519631L;
@@ -28,4 +28,8 @@ public class Menu implements Serializable {
     private String description;
     private BigDecimal price;
 
+    @Override
+    public int compareTo(Menu o) {
+        return this.getId().compareTo(o.getId());
+    }
 }

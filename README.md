@@ -5,8 +5,10 @@ By providing a centralized solution for menu updates and synchronization, this s
 
 bapp-menu-service is a springboot service(docker container) ,is connecting to redis(docker container)
 
-This service connects to redis to add and retrive the menu item,.
+This service connects to redis to add and retrive the menu item.
 Redis is used as both database and caching.
+
+* View Swagger documentation at [http://localhost:8085/swagger-ui/index.html](http://localhost:8085/swagger-ui/index.html)
 
 ## steps to follow to run standalone
 ###add these properties in  application.properties </br>
@@ -29,6 +31,7 @@ To run menu service <br/>
     docker-compose build
     docker-compose up
 
+Swagger URL
 Hit this endpoint to post a menu item </br>
 POST http://localhost:8085/api/menu </br>
 

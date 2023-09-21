@@ -31,7 +31,7 @@ public class MenuServiceImpl implements MenuService {
 
     @Override
     public Menu save(Menu menu) {
-        Optional<Menu> menuOptional = menuRepository.get().values().stream().toList().stream().sorted(Collections.reverseOrder()).findFirst();
+        Optional<Menu> menuOptional = menuRepository.get().values().stream().sorted(Collections.reverseOrder()).findFirst();
         int id = 0;
         if (menuOptional.isPresent())
             id = menuOptional.get().getId() + 1;
@@ -58,9 +58,16 @@ public class MenuServiceImpl implements MenuService {
     }
 
     @Override
-    public List<Menu> retrieve() {
+    public List<Menu> retrieve(String name, String description) {
         log.info("retrieve menu(s)");
-       return menuRepository.get().values().stream().toList();
+       return menuRepository.get().values().stream().filter(menu -> {
+               if (name != null)
+                   return name.equals(menu.getName());
+               if (description != null)
+                   return description.equals(menu.getDescription());
+               return true;
+           }).toList();
+
     }
 
     void validate(Integer id){

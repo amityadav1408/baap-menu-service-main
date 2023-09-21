@@ -28,8 +28,8 @@ public class MenuController {
     @Operation(summary = "get menu(s)")
     @ApiResponse(responseCode = "200", description = "menu details retrieved successfully")
     @ApiResponse(responseCode = "500", description = "error in retrieving menu(s)")
-    List<Menu> retrieveMenu() {
-       return menuService.retrieve();
+    List<Menu> retrieveMenu(@RequestParam(required = false) String name, @RequestParam(required = false) String description) {
+       return menuService.retrieve(name, description);
     }
 
     @PostMapping
@@ -43,7 +43,7 @@ public class MenuController {
 
     @PutMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @Operation(summary = "update menu")
+    @Operation(summary = "add menu")
     @ApiResponse(responseCode = "204", description = "menu updated successfully")
     @ApiResponse(responseCode = "500", description = "error in updating menu")
     void updateMenuItem(@RequestBody Menu menu) {

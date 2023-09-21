@@ -12,7 +12,6 @@ import java.util.Map;
 public class MenuRepository {
 
     private static final String MENU= "Menu";
-    private Integer PRIMARY_KEY = 1;
     private RedisTemplate<String, Object> redisTemplate;
     private HashOperations<String, Integer, Menu> hashOperations;
 
