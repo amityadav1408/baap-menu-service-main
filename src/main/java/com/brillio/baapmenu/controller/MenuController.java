@@ -34,7 +34,7 @@ public class MenuController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    @Operation(summary = "save menu")
+    @Operation(summary = "add menu")
     @ApiResponse(responseCode = "201", description = "menu saved successfully")
     @ApiResponse(responseCode = "500", description = "error in saving menu")
     void addMenuItem(@RequestBody Menu menu) {
@@ -43,7 +43,7 @@ public class MenuController {
 
     @PutMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @Operation(summary = "add menu")
+    @Operation(summary = "update menu")
     @ApiResponse(responseCode = "204", description = "menu updated successfully")
     @ApiResponse(responseCode = "500", description = "error in updating menu")
     void updateMenuItem(@RequestBody Menu menu) {
